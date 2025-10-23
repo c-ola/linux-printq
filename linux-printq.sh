@@ -1,4 +1,4 @@
-PROGRAM="pc-mobility-print-printer-setup-1.0.336[libraryprintq.printq.queensu.ca].exe"
+PROGRAM=$1
 LD_PRELOAD="$PWD/intercept.so" wine $PROGRAM
 URL_FILE=$(ls -td /tmp/* | grep "captured-url" | head -n 1)
 echo "Found $URL_FILE"
@@ -9,4 +9,3 @@ else
     echo "Failed to add Printer"
 fi
 rm $URL_FILE
-
